@@ -1,0 +1,83 @@
+C51 COMPILER V8.12   MAIN                                                                  04/10/2016 21:37:56 PAGE 1   
+
+
+C51 COMPILER V8.12, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX51.H>     
+   2          #include<stdio.h>
+   3          #include "lcd.h"                
+   4          sbit PL  = P1^0;   // Loading parallel data to HC165.
+   5          sbit CLK = P1^1;   // Clock pulse to HC165.
+   6          sbit Beep  = P1^2;   // 
+   7          sbit data_in  = P1^3;
+   8          
+   9            void clock(void);
+  10            void display(unsigned char value);
+  11                                           
+  12          void main()
+  13          {  
+  14   1       unsigned char position ,no_of_ip = 17;
+  15   1        lcd_init();
+  16   1        string("   gElectron");                  
+  17   1        while(1)
+  18   1      
+  19   1         {  
+  20   2            PL = 0 ;
+  21   2               delay(2);
+  22   2               PL = 1;
+  23   2      
+  24   2               for(position = 1; no_of_ip > position; position++ , clock())
+  25   2               {                 
+  26   3                      
+  27   3          if(data_in == 1)
+  28   3                  display(position);   
+  29   3      
+  30   3               }
+  31   2         }    
+  32   1      }  
+  33          
+  34           void clock(void)
+  35           {
+  36   1         CLK = 1;
+  37   1         delay(1);
+  38   1         CLK = 0;
+  39   1      
+  40   1       }
+  41          
+  42          void display(unsigned int value)
+  43            {      
+*** WARNING C235 IN LINE 43 OF MAIN.C: parameter 1: different types
+  44   1        unsigned int a[1];
+  45   1          Beep =       1;
+  46   1              lcd_init();
+  47   1              lcd_cmd(0x01);          
+  48   1              string("Pressed key ");
+  49   1          lcd_cmd(0xc0); 
+  50   1               sprintf(a,"%d",value);  
+*** WARNING C182 IN LINE 50 OF MAIN.C: pointer to different objects
+  51   1           string(a); 
+*** WARNING C182 IN LINE 51 OF MAIN.C: pointer to different objects
+  52   1           delay(1);
+C51 COMPILER V8.12   MAIN                                                                  04/10/2016 21:37:56 PAGE 2   
+
+  53   1           Beep = 0;
+  54   1           
+  55   1        }       
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    319    ----
+   CONSTANT SIZE    =     29    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  3 WARNING(S),  0 ERROR(S)

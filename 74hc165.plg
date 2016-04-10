@@ -1,0 +1,28 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Krishna\Desktop\pro\74hc165.uv2
+Project File Date:  04/10/2016
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(43): warning C235: parameter 1: different types
+MAIN.C(50): warning C182: pointer to different objects
+MAIN.C(51): warning C182: pointer to different objects
+linking...
+Program Size: data=36.1 xdata=0 code=1404
+"74hc165" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+MAIN.C(43): warning C235: parameter 1: different types
+MAIN.C(50): warning C182: pointer to different objects
+MAIN.C(51): warning C182: pointer to different objects
+linking...
+Program Size: data=36.1 xdata=0 code=1404
+creating hex file from "74hc165"...
+"74hc165" - 0 Error(s), 3 Warning(s).
